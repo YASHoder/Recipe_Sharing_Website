@@ -1,0 +1,449 @@
+/* ---------------------------------------------------------
+   Auth screens (Login / Register)
+   Signature: a "recipe box" panel — a stack of index cards
+   that auto-cycles through real recipes, stitched + punched
+   like a genuine kitchen card box.
+--------------------------------------------------------- */
+
+.auth-screen {
+  min-height: calc(100vh - 76px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 560px);
+  background: var(--cream);
+}
+
+/* ---------- Left: recipe-box panel ---------- */
+
+.auth-showcase {
+  position: relative;
+  background: var(--charcoal-2);
+  color: var(--cream);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 48px 56px 40px;
+}
+
+.auth-showcase::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(251, 243, 229, 0.10) 1px, transparent 1px);
+  background-size: 22px 22px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.auth-showcase-top .nav-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.auth-brand-mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--paprika);
+  color: var(--paper);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.auth-brand-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--cream);
+}
+
+.auth-showcase-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 380px;
+  margin-top: 8px;
+}
+
+.auth-showcase-copy .eyebrow {
+  color: var(--mustard);
+}
+.auth-showcase-copy .eyebrow::before {
+  background: var(--mustard);
+}
+
+.auth-showcase-copy h1 {
+  color: var(--paper);
+  font-size: clamp(1.9rem, 3vw, 2.5rem);
+  margin: 14px 0 12px;
+}
+
+.auth-showcase-copy p {
+  color: var(--sage-light);
+  font-size: 1rem;
+}
+
+/* card stack */
+.card-box {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 340px;
+  height: 200px;
+  margin: 40px 0 8px;
+  perspective: 1200px;
+}
+
+.index-card {
+  position: absolute;
+  inset: 0;
+  background: var(--paper);
+  color: var(--charcoal);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lift);
+  padding: 22px 24px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid var(--line);
+  opacity: 0;
+  transform: rotate(-6deg) translateY(14px) scale(0.96);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.index-card::before {
+  /* stitched top line, like a real recipe card */
+  content: '';
+  position: absolute;
+  top: 34px;
+  left: 22px;
+  right: 22px;
+  height: 0;
+  border-top: 1.5px dashed var(--line);
+}
+
+.index-card::after {
+  /* punch hole */
+  content: '';
+  position: absolute;
+  top: 14px;
+  left: 22px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--cream);
+  box-shadow: inset 0 0 0 1.5px var(--line);
+}
+
+.index-card.is-active {
+  opacity: 1;
+  transform: rotate(-1.5deg) translateY(0) scale(1);
+  z-index: 3;
+}
+
+.index-card.is-prev {
+  opacity: 0.55;
+  transform: rotate(3deg) translateY(10px) scale(0.94);
+  z-index: 2;
+}
+
+.index-card-cat {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--paprika);
+}
+
+.index-card-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-top: 20px;
+}
+
+.index-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+  margin-top: 10px;
+}
+
+.index-card-meta strong {
+  color: var(--charcoal-2);
+  font-weight: 700;
+}
+
+.card-box-dots {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 7px;
+  margin-bottom: 8px;
+}
+
+.card-box-dots span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(251, 243, 229, 0.3);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.card-box-dots span.is-active {
+  background: var(--mustard);
+  transform: scale(1.25);
+}
+
+.auth-showcase-stats {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 32px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(251, 243, 229, 0.15);
+}
+
+.auth-showcase-stats div strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--paper);
+}
+
+.auth-showcase-stats div span {
+  font-size: 0.78rem;
+  color: var(--sage-light);
+}
+
+/* ---------- Right: form panel ---------- */
+
+.auth-form-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 32px;
+  background: var(--cream);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 380px;
+}
+
+.auth-card-head {
+  margin-bottom: 28px;
+}
+
+.auth-card-head .eyebrow {
+  margin-bottom: 12px;
+}
+
+.auth-card-head h2 {
+  margin-bottom: 6px;
+}
+
+.auth-card-head p {
+  font-size: 0.92rem;
+  color: var(--ink-muted);
+}
+
+.auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.auth-field label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--charcoal-2);
+}
+
+.auth-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.auth-input-wrap svg {
+  position: absolute;
+  left: 14px;
+  width: 17px;
+  height: 17px;
+  color: var(--ink-muted);
+  pointer-events: none;
+}
+
+.auth-input-wrap input {
+  width: 100%;
+  padding: 12px 14px 12px 40px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--line);
+  background: var(--paper);
+  font-size: 0.94rem;
+  font-family: var(--font-body);
+  color: var(--charcoal);
+  transition: border-color 0.15s ease;
+}
+
+.auth-input-wrap input:focus {
+  border-color: var(--paprika);
+  outline: none;
+}
+
+.auth-input-wrap input.has-error {
+  border-color: var(--paprika-dark);
+}
+
+.auth-toggle-visibility {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--ink-muted);
+  padding: 6px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.auth-toggle-visibility:hover {
+  color: var(--charcoal);
+}
+
+.auth-toggle-visibility svg {
+  position: static;
+  pointer-events: auto;
+}
+
+.auth-error-text {
+  font-size: 0.78rem;
+  color: var(--paprika-dark);
+  margin: -10px 0 14px;
+  min-height: 1em;
+}
+
+.auth-submit {
+  width: 100%;
+  margin-top: 6px;
+  padding: 14px 26px;
+}
+
+.auth-row-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: -6px 0 18px;
+  font-size: 0.82rem;
+}
+
+.auth-remember {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--charcoal-2);
+  cursor: pointer;
+  user-select: none;
+}
+
+.auth-remember input {
+  accent-color: var(--paprika);
+  width: 14px;
+  height: 14px;
+}
+
+.auth-forgot {
+  color: var(--paprika);
+  font-weight: 700;
+}
+.auth-forgot:hover { text-decoration: underline; }
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 26px 0;
+  color: var(--ink-muted);
+  font-size: 0.76rem;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.auth-switch {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+}
+
+.auth-switch a {
+  color: var(--paprika);
+  font-weight: 700;
+}
+.auth-switch a:hover { text-decoration: underline; }
+
+.auth-strength {
+  display: flex;
+  gap: 4px;
+  margin: -10px 0 14px;
+}
+
+.auth-strength span {
+  height: 4px;
+  flex: 1;
+  border-radius: 2px;
+  background: var(--line);
+  transition: background 0.2s ease;
+}
+
+.auth-strength-label {
+  font-size: 0.74rem;
+  color: var(--ink-muted);
+  margin: -10px 0 14px;
+  text-align: right;
+}
+
+@media (max-width: 900px) {
+  .auth-screen {
+    grid-template-columns: 1fr;
+  }
+  .auth-showcase {
+    padding: 36px 24px;
+    min-height: 340px;
+  }
+  .card-box {
+    max-width: 280px;
+    height: 172px;
+    margin: 24px 0 4px;
+  }
+  .auth-showcase-stats {
+    display: none;
+  }
+  .auth-form-panel {
+    padding: 40px 20px 64px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .index-card {
+    transition: none;
+  }
+}

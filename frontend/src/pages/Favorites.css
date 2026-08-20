@@ -1,0 +1,9 @@
+.large-empty {
+  padding: 90px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.large-empty .btn { margin-top: 14px; }

@@ -1,0 +1,189 @@
+.recipes-header {
+  background: var(--cream-2);
+  border-bottom: 1px solid var(--line);
+  padding: 56px 0 40px;
+}
+
+.recipes-sub {
+  max-width: 540px;
+  margin-bottom: 24px;
+}
+
+/* ── Toolbar (search + sort) ── */
+.recipes-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 36px 0 0;
+  flex-wrap: wrap;
+}
+
+.recipes-search {
+  flex: 1;
+  min-width: 200px;
+  max-width: 460px;
+  padding: 13px 16px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--line);
+  background: var(--paper);
+  font-size: 0.94rem;
+}
+
+.recipes-search:focus {
+  border-color: var(--paprika);
+  outline: none;
+}
+
+.recipes-sort {
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--line);
+  background: var(--paper);
+  font-size: 0.9rem;
+  color: var(--charcoal);
+  cursor: pointer;
+}
+
+.recipes-sort:focus {
+  border-color: var(--paprika);
+  outline: none;
+}
+
+/* ── Category pills ── */
+.category-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 22px 0 28px;
+}
+
+.pill {
+  background: var(--paper);
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  padding: 7px 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--charcoal-2);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.pill:hover {
+  border-color: var(--paprika);
+  color: var(--paprika-dark);
+}
+
+.pill.is-active {
+  background: var(--charcoal);
+  border-color: var(--charcoal);
+  color: var(--cream);
+}
+
+/* ── Card grid ── */
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  padding-bottom: 80px;
+}
+
+/* ── Legacy / sidebar styles (kept for reference) ── */
+.recipes-body {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 44px;
+  padding: 48px 0 90px;
+  align-items: start;
+}
+
+.filters {
+  position: sticky;
+  top: 96px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.filter-group h4 {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+  margin-bottom: 12px;
+}
+
+.filter-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.filter-pill {
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.92rem;
+  color: var(--charcoal-2);
+  cursor: pointer;
+}
+
+.filter-pill:hover { background: var(--cream-2); }
+
+.filter-pill.is-active {
+  background: var(--charcoal);
+  color: var(--cream);
+  font-weight: 700;
+}
+
+.filter-select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--line);
+  background: var(--paper);
+  font-size: 0.9rem;
+}
+
+.results-count {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  margin-bottom: 22px;
+}
+
+.recipes-results .card-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.empty-state {
+  border: 1.5px dashed var(--line);
+  border-radius: var(--radius-md);
+  padding: 60px 24px;
+  text-align: center;
+  color: var(--ink-muted);
+}
+
+.empty-state h3 { color: var(--charcoal); }
+
+/* ── Responsive ── */
+@media (max-width: 940px) {
+  .recipes-grid { grid-template-columns: repeat(2, 1fr); }
+  .recipes-body { grid-template-columns: 1fr; }
+  .filters {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 28px;
+  }
+  .filter-group { flex: 1; min-width: 200px; }
+  .recipes-results .card-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .recipes-grid { grid-template-columns: 1fr; }
+  .recipes-results .card-grid { grid-template-columns: 1fr; }
+}

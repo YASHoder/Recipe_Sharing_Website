@@ -1,0 +1,273 @@
+.admin-page {
+  min-height: 70vh;
+  padding-bottom: 80px;
+}
+
+.admin-header {
+  background: var(--charcoal);
+  color: var(--cream);
+  padding: 56px 0 40px;
+}
+
+.admin-header .eyebrow {
+  color: var(--mustard);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.admin-header h1 {
+  color: var(--paper);
+  margin-top: 0.3em;
+}
+
+.admin-sub {
+  color: var(--cream-2);
+  max-width: 640px;
+}
+
+.admin-body {
+  margin-top: 32px;
+}
+
+.admin-tabs {
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 24px;
+}
+
+.admin-tab {
+  border: none;
+  background: none;
+  padding: 10px 18px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--ink-muted);
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transform: translateY(1px);
+}
+
+.admin-tab.is-active {
+  color: var(--charcoal);
+  border-bottom-color: var(--paprika);
+}
+
+.admin-toolbar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.admin-search {
+  flex: 1;
+  min-width: 220px;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--paper);
+  font-family: var(--font-body);
+}
+
+.admin-select {
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--paper);
+  font-family: var(--font-body);
+}
+
+.admin-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--paper);
+  box-shadow: var(--shadow-card);
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 720px;
+}
+
+.admin-table th {
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-muted);
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line);
+  background: var(--cream-2);
+}
+
+.admin-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: middle;
+  font-size: 0.92rem;
+}
+
+.admin-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-recipe-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.admin-recipe-cell img {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: var(--cream-2);
+}
+
+.admin-actions-col {
+  white-space: nowrap;
+  display: flex;
+  gap: 8px;
+}
+
+.source-pill {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.source-pill.is-default {
+  background: var(--sage-light);
+  color: var(--charcoal-2);
+}
+
+.source-pill.is-user {
+  background: #FBE7D4;
+  color: var(--mustard-dark);
+}
+
+.admin-empty {
+  text-align: center;
+  color: var(--ink-muted);
+  padding: 32px 16px !important;
+}
+
+.btn-danger {
+  border-color: var(--paprika);
+  color: var(--paprika);
+}
+
+.btn-danger:hover {
+  background: var(--paprika);
+  color: var(--paper);
+}
+
+.btn-danger-solid {
+  background: var(--paprika) !important;
+  border-color: var(--paprika) !important;
+}
+
+.btn-danger-solid:hover {
+  background: var(--paprika-dark) !important;
+}
+
+/* ---------- inline edit row ---------- */
+
+.admin-edit-row td {
+  background: var(--cream);
+}
+
+.admin-edit-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  padding: 10px 4px 18px;
+}
+
+.admin-edit-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink-muted);
+}
+
+.admin-edit-form input,
+.admin-edit-form select,
+.admin-edit-form textarea {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 9px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--paper);
+  color: var(--charcoal);
+}
+
+.admin-edit-form .span-2 {
+  grid-column: span 2;
+}
+
+.admin-edit-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* ---------- confirmation modal ---------- */
+
+.admin-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(33, 48, 31, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  padding: 20px;
+}
+
+.admin-modal {
+  background: var(--paper);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  max-width: 380px;
+  width: 100%;
+  box-shadow: var(--shadow-lift);
+}
+
+.admin-modal h3 {
+  margin-top: 0;
+}
+
+.admin-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+@media (max-width: 640px) {
+  .admin-edit-form {
+    grid-template-columns: 1fr;
+  }
+  .admin-edit-form .span-2 {
+    grid-column: span 1;
+  }
+}

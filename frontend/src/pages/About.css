@@ -1,0 +1,164 @@
+.about-hero {
+  background: var(--cream-2);
+  padding: 72px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.about-lede {
+  max-width: 620px;
+  font-size: 1.08rem;
+  margin-top: 8px;
+}
+
+.about-mission {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+}
+
+.team-section { background: var(--cream-2); }
+
+.team-section h2 { margin-bottom: 32px; }
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.team-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  text-align: center;
+}
+
+.team-card img {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 16px;
+  border: 2px solid var(--mustard);
+}
+
+.team-card h3 { margin-bottom: 2px; font-size: 1.1rem; }
+
+.team-role {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--paprika);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+
+.team-bio {
+  font-size: 0.88rem;
+  color: var(--ink-muted);
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.6fr;
+  gap: 48px;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 20px 0;
+  font-size: 1.02rem;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  color: var(--charcoal);
+  font-family: var(--font-display);
+}
+
+.faq-icon {
+  font-family: var(--font-mono);
+  color: var(--paprika);
+  font-size: 1.2rem;
+}
+
+.faq-answer {
+  padding-bottom: 20px;
+  margin: 0;
+  max-width: 560px;
+  color: var(--ink-muted);
+}
+
+.contact-section { background: var(--cream-2); }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.6fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 28px;
+}
+
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--charcoal-2);
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--line);
+  font-size: 0.94rem;
+  font-family: var(--font-body);
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--paprika);
+  outline: none;
+}
+
+.contact-form button { align-self: flex-start; }
+
+.contact-success {
+  background: var(--sage-light);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  color: #3D5233;
+}
+
+.contact-success h3 { color: #2C3D26; }
+
+@media (max-width: 860px) {
+  .about-mission, .faq-grid, .contact-grid { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,220 @@
+.hero {
+  background: var(--cream-2);
+  padding: 80px 0 60px;
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.hero-lede {
+  font-size: 1.08rem;
+  max-width: 480px;
+  margin-bottom: 28px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 44px;
+  flex-wrap: wrap;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 36px;
+}
+
+.hero-stats div {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-stats strong {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--paprika-dark);
+}
+
+.hero-stats span {
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+}
+
+.hero-media {
+  position: relative;
+}
+
+.hero-media img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lift);
+}
+
+.hero-card {
+  position: absolute;
+  left: -24px;
+  bottom: -24px;
+  background: var(--paper);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-lift);
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 220px;
+}
+
+.hero-card-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--paprika);
+}
+
+.hero-card strong {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--charcoal);
+}
+
+.hero-card-meta {
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+}
+
+.categories-strip {
+  border-bottom: 1px solid var(--line);
+}
+
+.categories-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.category-chip {
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  padding: 9px 18px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--charcoal-2);
+  transition: all 0.15s ease;
+}
+
+.category-chip:hover {
+  border-color: var(--paprika);
+  color: var(--paprika-dark);
+  background: var(--cream-2);
+}
+
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 36px;
+  gap: 24px;
+}
+
+.section-link {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--paprika-dark);
+  white-space: nowrap;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.card-grid-wide {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.how {
+  background: var(--charcoal);
+  color: var(--cream);
+}
+
+.how .eyebrow { color: var(--mustard); }
+.how .eyebrow::before { background: var(--mustard); }
+.how h2 { color: var(--cream); }
+
+.how-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.6fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.how-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.how-num {
+  font-family: var(--font-mono);
+  color: var(--mustard);
+  font-size: 0.85rem;
+}
+
+.how-step h3 {
+  color: var(--cream);
+  margin: 10px 0 8px;
+  font-size: 1.1rem;
+}
+
+.how-step p {
+  color: rgba(251, 243, 229, 0.68);
+  font-size: 0.92rem;
+}
+
+.cta {
+  background: var(--paprika);
+  color: var(--paper);
+  padding: 72px 0;
+  text-align: center;
+}
+
+.cta-inner {
+  max-width: 560px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.cta h2 { color: var(--paper); margin: 0; }
+.cta p { color: rgba(255, 253, 248, 0.86); margin: 0 0 12px; }
+.cta .btn-primary {
+  background: var(--charcoal);
+}
+.cta .btn-primary:hover { background: #16211a; }
+
+@media (max-width: 940px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-media { order: -1; max-width: 420px; }
+  .how-grid { grid-template-columns: 1fr; }
+  .how-steps { grid-template-columns: 1fr; }
+  .card-grid, .card-grid-wide { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .card-grid, .card-grid-wide { grid-template-columns: 1fr; }
+  .hero-card { position: static; margin-top: -40px; max-width: none; }
+}
