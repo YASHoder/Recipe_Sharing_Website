@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useFavorites } from "../context/FavoritesContext";
+import { useFavorites } from "../components/context/FavoritesContext";
 import "./RecipeCard.css";
 
 const DEFAULT_IMAGE =

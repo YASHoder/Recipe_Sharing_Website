@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { useFavorites } from '../context/FavoritesContext'
+import { useFavorites } from '../components/context/FavoritesContext'
 import RecipeCard from '../components/RecipeCard'
 import { api } from '../api/client'
 import './RecipeDetail.css'

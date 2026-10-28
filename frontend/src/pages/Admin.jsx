@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useMemo, useState, useCallback } from 'react'
-import { useAuth } from '../context/AuthContext'
+import { useAuth } from '../components/context/AuthContext'
 import { categories } from '../data/recipes'
 import { api } from '../api/client'
 import './Admin.css'

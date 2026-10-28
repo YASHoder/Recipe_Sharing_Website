@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useFavorites } from '../context/FavoritesContext'
+import { useFavorites } from "../components/context/FavoritesContext";
 import RecipeCard from '../components/RecipeCard'
 import { api } from '../api/client'
 import './Favorites.css'

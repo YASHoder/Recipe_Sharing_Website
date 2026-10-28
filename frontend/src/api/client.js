@@ -1,12 +1,4 @@
-/**
- * Thin API client that wraps fetch() with:
- *  - Base URL pointing to the Flask backend
- *  - Automatic JWT Authorization header injection
- *  - JSON request/response handling
- *  - Consistent error shape: { error: string }
- */
-
-const BASE = import.meta.env.VITE_API_BASE_URL || "/api";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://your-render-backend-url.onrender.com/api";
 
 function getToken() {
   return localStorage.getItem("tt_token") || "";

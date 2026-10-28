@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
-import { api, setToken } from "../api/client";
+import { api, setToken } from "../../api/client";
 
 const AuthContext = createContext();
 

@@ -13,7 +13,7 @@ import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Admin from "./pages/Admin";
-import { ProtectedRoute, AdminRoute } from "./context/AuthContext";
+import { ProtectedRoute, AdminRoute } from "./components/context/AuthContext";
 export default () => (
   <>
     <ScrollToTop />

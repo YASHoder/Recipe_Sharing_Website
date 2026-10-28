@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-import { useAuth } from '../context/AuthContext'
+import { useAuth } from '../components/context/AuthContext'
 import AuthShowcase from '../components/AuthShowcase'
 import './Auth.css'
 
